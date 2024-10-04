@@ -1,0 +1,9 @@
+env_args:
+  env: "lbf"  # Identifier for LBF environment
+  env_name: "Foraging-8x8-2p-3f-v2"  # Specific LBF environment configuration (e.g., grid size)
+  n_agents: 2  # Number of agents
+  episode_limit: 50  # Maximum episode length
+  obs_shape: 64  # Adjust based on LBF observation space
+  state_shape: 128  # Adjust based on LBF state space (concatenation of all agent obs)
+  action_space: 5  # Number of actions per agent in LBF
+  seed: 12345  # Random seed
