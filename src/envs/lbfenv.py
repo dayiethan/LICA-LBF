@@ -2,7 +2,7 @@ import gymnasium as gym
 import numpy as np
 from gymnasium.spaces import Discrete, Box
 
-class LBFEnvWrapper:
+class LBFEnvWrapper(object):
     def __init__(self, env_name="Foraging-8x8-2p-3f-v2"):
         self.env = gym.make(env_name)
         self.n_agents = self.env.n_agents
