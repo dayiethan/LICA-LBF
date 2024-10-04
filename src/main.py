@@ -46,7 +46,7 @@ def _get_config(params, arg_name, subfolder):
     if config_name is not None:
         with open(os.path.join(os.path.dirname(__file__), "config", subfolder, "{}.yaml".format(config_name)), "r") as f:
             try:
-                config_dict = yaml.load(f)
+                config_dict = yaml.safe_load(f)
             except yaml.YAMLError as exc:
                 assert False, "{}.yaml error: {}".format(config_name, exc)
         return config_dict
@@ -74,11 +74,11 @@ if __name__ == '__main__':
     params = deepcopy(sys.argv)
 
     # Get the defaults from default.yaml
-    with open(os.path.join(os.path.dirname(__file__), "config", "default.yaml"), "r") as f:
+    with open(os.path.join(os.path.dirname(__file__), "config", "lbf_default.yaml"), "r") as f:
         try:
-            config_dict = yaml.load(f)
+            config_dict = yaml.safe_load(f)
         except yaml.YAMLError as exc:
-            assert False, "default.yaml error: {}".format(exc)
+            assert False, "lbf_default.yaml error: {}".format(exc)
 
     # Load algorithm and env base configs
     env_config = _get_config(params, "--env-config", "envs")
