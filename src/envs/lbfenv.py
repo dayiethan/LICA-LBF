@@ -1,12 +1,14 @@
+import lbforaging
 import gymnasium as gym
 import numpy as np
 from gymnasium.spaces import Discrete, Box
 
 class LBFEnvWrapper(object):
-    def __init__(self, env_name="Foraging-8x8-2p-3f-v2"):
+    def __init__(self, env_name="Foraging-8x8-2p-1f-v3", seed=None):
         self.env = gym.make(env_name)
         self.n_agents = self.env.n_agents
-        self.action_space = Discrete(self.env.action_space.n)
+        print(self.env.action_space[0])
+        self.action_space = self.env.action_space
         self.observation_space = Box(low=0, high=1, shape=self.env.observation_space.shape, dtype=np.float32)
         self.episode_limit = 50  # Adjust based on environment specs
     
@@ -26,7 +28,7 @@ class LBFEnvWrapper(object):
         return [self.env.get_agent_obs(i) for i in range(self.n_agents)]
 
     def get_avail_actions(self):
-        return [[1] * self.env.action_space.n for _ in range(self.n_agents)]
+        return [[1] * self.env.action_space[0].n for _ in range(self.n_agents)]
     
     def get_env_info(self):
         return {
