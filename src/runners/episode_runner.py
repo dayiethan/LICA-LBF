@@ -13,6 +13,8 @@ class EpisodeRunner:
         assert self.batch_size == 1
 
         self.env = env_REGISTRY[self.args.env](**self.args.env_args)
+        print("TEST")
+        print(self.env)
         self.episode_limit = self.env.episode_limit
         self.t = 0
 

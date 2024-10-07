@@ -88,4 +88,4 @@ class BasicMAC:
         if self.args.obs_agent_id:
             input_shape += self.n_agents
 
-        return input_shape
+        return int(input_shape)

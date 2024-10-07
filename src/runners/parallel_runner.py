@@ -77,6 +77,10 @@ class ParallelRunner:
             pre_transition_data["avail_actions"].append(data["avail_actions"])
             pre_transition_data["obs"].append(data["obs"])
 
+        for k, v in pre_transition_data.items():
+            print(type(k))
+            print(v)
+            break
         self.batch.update(pre_transition_data, ts=0)
 
         self.t = 0
