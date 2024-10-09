@@ -77,10 +77,6 @@ class ParallelRunner:
             pre_transition_data["avail_actions"].append(data["avail_actions"])
             pre_transition_data["obs"].append(data["obs"])
 
-        for k, v in pre_transition_data.items():
-            print(type(k))
-            print(v)
-            break
         self.batch.update(pre_transition_data, ts=0)
 
         self.t = 0
@@ -141,9 +137,9 @@ class ParallelRunner:
                 if not terminated[idx]:
                     data = parent_conn.recv()
                     # Remaining data for this current timestep
-                    post_transition_data["reward"].append((data["reward"],))
+                    post_transition_data["reward"].append(sum(data["reward"]))
 
-                    episode_returns[idx] += data["reward"]
+                    episode_returns[idx] += sum(data["reward"])
                     episode_lengths[idx] += 1
                     if not test_mode:
                         self.env_steps_this_run += 1
@@ -151,7 +147,7 @@ class ParallelRunner:
                     env_terminated = False
                     if data["terminated"]:
                         final_env_infos.append(data["info"])
-                    if data["terminated"] and not data["info"].get("episode_limit", False):
+                    if data["terminated"]:
                         env_terminated = True
                     terminated[idx] = data["terminated"]
                     post_transition_data["terminated"].append((env_terminated,))
@@ -186,7 +182,7 @@ class ParallelRunner:
         cur_returns = self.test_returns if test_mode else self.train_returns
         log_prefix = "test_" if test_mode else ""
         infos = [cur_stats] + final_env_infos
-        cur_stats.update({k: sum(d.get(k, 0) for d in infos) for k in set.union(*[set(d) for d in infos])})
+        # cur_stats.update({k: sum(d.get(k, 0) for d in infos) for k in set.union(*[set(d) for d in infos])})
         cur_stats["n_episodes"] = self.batch_size + cur_stats.get("n_episodes", 0)
         cur_stats["ep_length"] = sum(episode_lengths) + cur_stats.get("ep_length", 0)
 
@@ -222,7 +218,7 @@ def env_worker(remote, env_fn):
         if cmd == "step":
             actions = data
             # Take a step in the environment
-            reward, terminated, env_info = env.step(actions)
+            _, reward, terminated, env_info, _ = env.step(actions)
             # Return the observations, avail_actions and state to make the next action
             state = env.get_state()
             avail_actions = env.get_avail_actions()
