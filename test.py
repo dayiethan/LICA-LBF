@@ -6,7 +6,7 @@ import time
 
 
 # TEMPLATE: "Foraging-{GRID_SIZE}x{GRID_SIZE}-{PLAYER COUNT}p-{FOOD LOCATIONS}f{-coop IF COOPERATIVE MODE}-v0"
-env = gym.make("Foraging-8x8-2p-1f-v3")
+env = gym.make("Foraging-8x8-2p-2f-c")
 env.reset()
 
 for t in range(100):
