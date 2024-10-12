@@ -1,0 +1,991 @@
+[INFO 09:30:39] pymarl Running command 'my_main'
+[INFO 09:30:39] pymarl Started run with ID "198"
+[DEBUG 09:30:39] pymarl Starting Heartbeat
+[DEBUG 09:30:39] my_main Started
+[INFO 09:30:39] my_main Experiment Parameters:
+[INFO 09:30:39] my_main 
+
+{   'action_selector': 'gumbel',
+    'agent': 'rnn',
+    'agent_output_type': 'pi_logits',
+    'batch_size': 32,
+    'batch_size_run': 32,
+    'buffer_cpu_only': True,
+    'buffer_size': 32,
+    'checkpoint_path': '',
+    'critic_lr': 0.0005,
+    'entropy_coef': 100.0,
+    'env': 'gymma',
+    'env_args': {   'common_reward': False,
+                    'key': 'matrixgames:climbing-nostate-v0',
+                    'pretrained_wrapper': None,
+                    'reward_scalarisation': False,
+                    'seed': 436140477,
+                    'time_limit': 25},
+    'epsilon_anneal_time': 100000,
+    'epsilon_finish': 0.01,
+    'epsilon_start': 0.5,
+    'evaluate': False,
+    'gamma': 0.99,
+    'grad_norm_clip': 10,
+    'hypernet_layers': 2,
+    'label': 'default_label',
+    'learner': 'lica_learner',
+    'learner_log_interval': 10000,
+    'load_step': 0,
+    'local_results_path': 'results',
+    'log_interval': 50000,
+    'lr': 0.0025,
+    'mac': 'basic_mac',
+    'mask_before_softmax': True,
+    'mixing_embed_dim': 64,
+    'name': 'lica',
+    'obs_agent_id': True,
+    'obs_last_action': True,
+    'optim_alpha': 0.99,
+    'optim_eps': 1e-05,
+    'repeat_id': 1,
+    'rnn_hidden_dim': 64,
+    'runner': 'parallel',
+    'runner_log_interval': 10000,
+    'save_model': False,
+    'save_model_interval': 320000,
+    'save_replay': False,
+    'seed': 436140477,
+    't_max': 2050000,
+    'target_update_interval': 200,
+    'td_lambda': 0.8,
+    'test_greedy': True,
+    'test_interval': 50000,
+    'test_nepisode': 96,
+    'use_cuda': True,
+    'use_tensorboard': True}
+
+Process Process-1:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-2:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-3:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-4:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-5:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-6:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-7:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-8:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-9:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-10:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-11:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-12:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-13:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-14:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-15:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-16:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-17:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-18:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-19:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-20:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-21:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-22:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-23:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-24:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-25:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-26:
+Process Process-27:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-28:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-29:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-30:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-31:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.
+Process Process-32:
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 498, in _find_spec
+    importlib.import_module(module)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'matrixgames'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/runners/parallel_runner.py", line 215, in env_worker
+    env = env_fn.x()
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/__init__.py", line 20, in gymma_fn
+    return GymmaWrapper(**kwargs)
+  File "/home/dayiethan/Documents/Cal/Research/llm_credit_assignment/LICA-baseline/src/envs/gymma.py", line 101, in __init__
+    self._env = gym.make(f"{key}", **kwargs)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 741, in make
+    env_spec = _find_spec(id)
+  File "/home/dayiethan/anaconda3/envs/lica/lib/python3.9/site-packages/gymnasium/envs/registration.py", line 500, in _find_spec
+    raise ModuleNotFoundError(
+ModuleNotFoundError: No module named 'matrixgames'. Environment registration via importing a module failed. Check whether 'matrixgames' contains env registration and can be imported.

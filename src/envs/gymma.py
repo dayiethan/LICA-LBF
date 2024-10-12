@@ -2,6 +2,8 @@ from collections.abc import Iterable
 import warnings
 
 import lbforaging
+import rware
+import matrixgames
 import gymnasium as gym
 from gymnasium.spaces import flatdim
 from gymnasium.wrappers import TimeLimit

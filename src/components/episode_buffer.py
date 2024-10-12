@@ -26,6 +26,8 @@ class EpisodeBatch:
             self.data.transition_data = {}
             self.data.episode_data = {}
             self._setup_data(self.scheme, self.groups, batch_size, max_seq_length, self.preprocess)
+            print("transition_data state size: ")
+            print(self.data.transition_data["state"].size())
 
     def _setup_data(self, scheme, groups, batch_size, max_seq_length, preprocess):
         if preprocess is not None:
@@ -73,6 +75,7 @@ class EpisodeBatch:
                 self.data.episode_data[field_key] = th.zeros((batch_size, *shape), dtype=dtype, device=self.device)
             else:
                 self.data.transition_data[field_key] = th.zeros((batch_size, max_seq_length, *shape), dtype=dtype, device=self.device)
+        print(self.data.transition_data["state"].size())
 
     def extend(self, scheme, groups=None):
         self._setup_data(scheme, self.groups if groups is None else groups, self.batch_size, self.max_seq_length)
@@ -100,7 +103,25 @@ class EpisodeBatch:
                 raise KeyError("{} not found in transition or episode data".format(k))
 
             dtype = self.scheme[k].get("dtype", th.float32)
+            print(k)
+            # if k == "state":
+            #     print("pre v: ")
+            #     print(len(v))
+            #     print(len(v[0]))
+            #     print(v[0])
             v = th.tensor(v, dtype=dtype, device=self.device)
+            if k == "state":
+                print(v.size())
+                print(slices)
+                print(_slices)
+                print(target[k][_slices].size())
+                print(target[k])
+                print(target[k].size())
+            # if k == "state":
+            #     print("v size: ")
+            #     print(v.size())
+            #     print("target size: ")
+            #     print(target[k].size())
             self._check_safe_view(v, target[k][_slices])
             target[k][_slices] = v.view_as(target[k][_slices])
 
@@ -113,6 +134,10 @@ class EpisodeBatch:
 
     def _check_safe_view(self, v, dest):
         idx = len(v.shape) - 1
+        print("checking code: ")
+        print(v.shape)
+        print(dest.shape)
+        print("")
         for s in dest.shape[::-1]:
             if v.shape[idx] != s:
                 if s != 1:
