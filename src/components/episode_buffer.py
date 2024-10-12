@@ -89,14 +89,18 @@ class EpisodeBatch:
 
     def update(self, data, bs=slice(None), ts=slice(None), mark_filled=True):
         slices = self._parse_slices((bs, ts))
+        print("UPDATE")
+        print(data.keys())
         for k, v in data.items():
             if k in self.data.transition_data:
+                print("1")
                 target = self.data.transition_data
                 if mark_filled:
                     target["filled"][slices] = 1
                     mark_filled = False
                 _slices = slices
             elif k in self.data.episode_data:
+                print("2")
                 target = self.data.episode_data
                 _slices = slices[0]
             else:
@@ -112,6 +116,9 @@ class EpisodeBatch:
             v = th.tensor(v, dtype=dtype, device=self.device)
             if k == "state":
                 print(v.size())
+                print(v.shape)
+                print(bs)
+                print(ts)
                 print(slices)
                 print(_slices)
                 print(target[k][_slices].size())
@@ -139,6 +146,8 @@ class EpisodeBatch:
         print(dest.shape)
         print("")
         for s in dest.shape[::-1]:
+            print(v.shape[idx])
+            print(s)
             if v.shape[idx] != s:
                 if s != 1:
                     raise ValueError("Unsafe reshape of {} to {}".format(v.shape, dest.shape))

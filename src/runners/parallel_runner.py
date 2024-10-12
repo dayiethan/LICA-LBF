@@ -164,6 +164,8 @@ class ParallelRunner:
             self.t += 1
 
             # Add the pre-transition data
+            print("TERMS")
+            print(len(terminated))
             self.batch.update(pre_transition_data, bs=envs_not_terminated, ts=self.t, mark_filled=True)
 
         if not test_mode:
